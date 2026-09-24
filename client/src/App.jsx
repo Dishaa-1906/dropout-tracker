@@ -1,34 +1,63 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
+import Students from "./pages/Students";
+import AddStudent from "./pages/AddStudent";
+
 import "./App.css";
 
 function App() {
   return (
-    <div className="app">
+    <BrowserRouter>
 
-      <Sidebar />
+      <div className="app">
 
-      <div className="main-content">
+        <Sidebar />
 
-        <header className="topbar">
-          <div>
-            <h3>Student Early Warning System</h3>
-          </div>
+        <div className="main-content">
 
-          <div className="profile">
-            <span>🔔</span>
+          <header className="topbar">
+
             <div>
-              <strong>Admin</strong>
-              <small>School Administrator</small>
+              <h3>Student Early Warning System</h3>
             </div>
-          </div>
-        </header>
 
-        <Dashboard />
+            <div className="profile">
+              <span>🔔</span>
+
+              <div>
+                <strong>Admin</strong>
+                <small>School Administrator</small>
+              </div>
+            </div>
+
+          </header>
+
+          <Routes>
+
+            <Route
+              path="/"
+              element={<Dashboard />}
+            />
+
+            <Route
+              path="/students"
+              element={<Students />}
+            />
+
+            <Route
+              path="/add-student"
+              element={<AddStudent />}
+            />
+
+          </Routes>
+
+        </div>
 
       </div>
 
-    </div>
+    </BrowserRouter>
   );
 }
 
